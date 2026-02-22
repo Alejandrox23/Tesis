@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Dark</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="diseño.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container py-2">
+
+      <!-- SOLO LOGO (puede ser imagen o icono) -->
+      <a class="navbar-brand brand-logo" href="#inicio" aria-label="Logo">
+        <!-- Si tienes logo.png, usa esto:
+        <img src="logo.png" alt="Logo" class="logo-img">
+        -->
+        <span class="brand-icon" aria-hidden="true">⚡</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto gap-lg-1">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#inicio">Inicio</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#servicios">Servicios</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              Menú
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#opcion1">Opción 1</a></li>
+              <li><a class="dropdown-item" href="#opcion2">Opción 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+
+              <!-- Submenú -->
+              <li class="dropdown-submenu">
+                <a class="dropdown-item submenu-trigger" href="#">Submenú</a>
+                <ul class="dropdown-menu submenu-menu">
+                  <li><a class="dropdown-item" href="#sub1">Sub 1</a></li>
+                  <li><a class="dropdown-item" href="#sub2">Sub 2</a></li>
+                  <li><a class="dropdown-item" href="#sub3">Sub 3</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="container py-4 py-lg-5" id="inicio">
+
+    <section class="section reveal">
+      <div class="p-4 p-lg-5 card-dark glow-accent">
+        <h1 class="display-6 fw-bold mb-2">Diseño dark suave</h1>
+        <p class="text-white-50 mb-0">
+          Fondo negro suave, texto blanco, detalles amarillos, navbar simple y responsive.
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="servicios">
+      <h2 class="fw-bold mb-3">Servicios</h2>
+      <div class="row g-3">
+        <div class="col-12 col-lg-6 reveal">
+          <div class="p-4 card-dark h-100">
+            <h5 class="fw-bold">Servicio A</h5>
+            <p class="text-white-50 mb-0">Descripción breve.</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 reveal">
+          <div class="p-4 card-dark h-100">
+            <h5 class="fw-bold">Servicio B</h5>
+            <p class="text-white-50 mb-0">Descripción breve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contacto">
+      <h2 class="fw-bold mb-3">Contacto</h2>
+      <div class="row g-3">
+        <div class="col-12 col-lg-6 reveal">
+          <div class="p-4 card-dark">
+            <label class="form-label">Nombre</label>
+            <input class="form-control mb-3" placeholder="Tu nombre" />
+            <label class="form-label">Correo</label>
+            <input class="form-control mb-3" placeholder="tucorreo@email.com" />
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-control mb-3" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+            <button class="btn btn-outline-light w-100">Enviar</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 reveal">
+          <div class="p-4 card-dark h-100">
+            <h5 class="fw-bold">Info</h5>
+            <p class="text-white-50 mb-1">📍 Loja, Ecuador</p>
+            <p class="text-white-50 mb-1">📞 +593 000 000 000</p>
+            <p class="text-white-50 mb-0">✉️ correo@ejemplo.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-4 mt-lg-5">
+    <div class="container footer-inner">
+      <div class="row align-items-center g-2">
+        <div class="col-12 col-md-6">
+          <div class="tiny">© <span id="year"></span> - Todos los derechos reservados.</div>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#inicio" class="me-3">Inicio</a>
+          <a href="#servicios" class="me-3">Servicios</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tu JS -->
+  <script src="app.js"></script>
+</body>
+</html>
