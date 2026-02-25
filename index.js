@@ -1,36 +1,35 @@
 // Año automático
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Reveal
-const items = document.querySelectorAll(".reveal");
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e) => {
-    if (e.isIntersecting) e.target.classList.add("is-visible");
-  });
-}, { threshold: 0.15 });
+// Cerrar menú al tocar un link (mobile)
+const navCollapse = document.getElementById("mainNav");
+const bsCollapse = navCollapse ? bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false }) : null;
 
-items.forEach(el => io.observe(el));
-
-// Submenú móvil/tablet: toggle
-document.querySelectorAll(".submenu-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", (e) => {
-    if (window.innerWidth < 992) {
-      e.preventDefault();
-      const submenu = trigger.nextElementSibling;
-
-      // Cierra otros abiertos
-      document.querySelectorAll(".submenu-menu.show").forEach((open) => {
-        if (open !== submenu) open.classList.remove("show");
-      });
-
-      submenu.classList.toggle("show");
-    }
+document.querySelectorAll(".navbar .nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    const isMobile = window.matchMedia("(max-width: 991.98px)").matches;
+    if (isMobile && bsCollapse) bsCollapse.hide();
   });
 });
 
-// Limpieza al pasar a desktop
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 992) {
-    document.querySelectorAll(".submenu-menu.show").forEach((el) => el.classList.remove("show"));
+// (Opcional) marcar activo según scroll a secciones con #id
+const links = Array.from(document.querySelectorAll(".navbar .nav-link"));
+const sections = links
+  .map(a => document.querySelector(a.getAttribute("href")))
+  .filter(Boolean);
+
+function setActiveByScroll(){
+  const y = window.scrollY + 140;
+  let currentId = sections[0]?.id;
+
+  for (const sec of sections) {
+    if (sec.offsetTop <= y) currentId = sec.id;
   }
-});
+
+  links.forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === `#${currentId}`);
+  });
+}
+
+window.addEventListener("scroll", setActiveByScroll, { passive: true });
+setActiveByScroll();
