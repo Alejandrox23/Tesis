@@ -1,0 +1,512 @@
+/* ===== HERO BG ===== */
+.hero-bg{
+  position: relative;
+  width: 100%;
+  min-height: clamp(420px, 70vh, 720px); /* responsive */
+  display: grid;
+  place-items: center;
+
+  /* Imagen de fondo */
+  background-image: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=70");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.58),
+    rgba(0,0,0,.52)
+  );
+}
+
+/* Contenido sobre la imagen */
+.hero-content{
+  position: relative;
+  z-index: 2;
+  padding: 64px 0;
+}
+
+.hero-box{
+  max-width: 860px;
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: 22px;
+
+  background: rgba(0,0,0,.42);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: #fff;
+}
+
+/* Slogan */
+.hero-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+
+  /* multipantalla */
+  font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+}
+
+.hero-subtitle{
+  margin-top: 12px;
+  margin-bottom: 0;
+  max-width: 72ch;
+  color: rgba(255,255,255,.86);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+}
+
+/* Botones */
+.hero-actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Ajustes mobile */
+@media (max-width: 575.98px){
+  .hero-content{ padding: 48px 0; }
+  .hero-box{ border-radius: 18px; }
+  .hero-actions .btn{ width: 100%; }
+}
+/* ===== SOBRE NOSOTROS ===== */
+.about-section{
+  padding: 70px 0;
+  background: #ffffff;
+}
+
+.about-head{
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.about-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.about-subtitle{
+  margin-top: 10px;
+  color: #666;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards */
+.about-card{
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 18px 45px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.about-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.10);
+}
+
+/* Imagen */
+.about-img img{
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenido */
+.about-body{
+  padding: 18px 20px 22px;
+}
+
+.about-card-title{
+  margin: 0;
+  font-weight: 900;
+}
+
+.about-text{
+  margin-top: 10px;
+  color: #555;
+}
+
+.about-list{
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+  color: #444;
+}
+
+/* Responsive ajustes */
+@media (max-width: 575.98px){
+  .about-section{ padding: 52px 0; }
+  .about-img img{ height: 200px; }
+}
+/* ===== CURSOS ===== */
+.courses-section{
+  padding: 70px 0;
+  background: #fafafa;
+}
+
+.courses-head{
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.courses-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.courses-subtitle{
+  margin-top: 10px;
+  color: #666;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card */
+.course-card{
+  height: 100%;
+  padding: 20px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 18px 45px rgba(0,0,0,.06);
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.course-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.10);
+}
+
+/* Parte superior (icono + precio) */
+.course-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.course-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 213, 79, .22);
+  border: 1px solid rgba(255, 213, 79, .35);
+  font-size: 1.45rem;
+}
+
+.course-price{
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  font-weight: 900;
+}
+
+.course-price .cur{ font-size: 1rem; }
+.course-price .val{
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+.course-price .per{
+  font-size: .95rem;
+  color: #666;
+  font-weight: 800;
+}
+
+/* Contenido */
+.course-name{
+  margin: 14px 0 0;
+  font-weight: 900;
+}
+
+.course-text{
+  margin-top: 10px;
+  color: #555;
+}
+
+.course-list{
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+  color: #444;
+}
+
+/* Botón estilo link */
+.course-btn{
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 900;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255,213,79,.75);
+  padding-bottom: 2px;
+}
+
+.course-btn:hover{ opacity: .85; }
+
+/* Botón sólido para el destacado */
+.course-btn.solid{
+  display: inline-block;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255,213,79,.95);
+  color: #111;
+}
+
+/* Destacado */
+.course-card.featured{
+  border: 1px solid rgba(255,213,79,.6);
+  box-shadow: 0 26px 70px rgba(255,213,79,.10);
+}
+
+.course-badge{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: .85rem;
+  font-weight: 900;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: rgba(255, 213, 79, .26);
+  border: 1px solid rgba(255, 213, 79, .45);
+}
+
+/* Responsive */
+@media (max-width: 575.98px){
+  .courses-section{ padding: 52px 0; }
+}
+:root{
+  --soft-black: rgba(10,10,10,.86);
+  --soft-black-2: rgba(8,10,14,.96);
+  --stroke: rgba(0,0,0,.10);
+  --muted: #666;
+  --yellow: #ffd54f;
+  --yellow2:#fbc02d;
+
+  /* “tintas” suaves (como el ejemplo) pero con nuestra paleta */
+  --t1: #f6f2e7;  /* beige claro */
+  --t2: #ffffff;  /* blanco */
+  --t3: #eaf2ee;  /* verdoso suave */
+  --t4: #edf2f3;  /* gris azulado suave */
+}
+
+/* ===== PLANES ===== */
+.plans-section{
+  padding: 70px 0;
+  background: #fff;
+}
+
+.plans-head{
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.plans-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+}
+
+.plans-subtitle{
+  margin: 10px auto 0;
+  max-width: 80ch;
+  color: var(--muted);
+}
+
+/* Cards estilo “edX” */
+.plan-box{
+  height: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  overflow: hidden;
+
+  padding: 18px 16px 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.06);
+  transition: transform .22s ease, box-shadow .22s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-box:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(0,0,0,.10);
+}
+
+/* “tintas” de fondo por card */
+.tint-1{ background: var(--t1); }
+.tint-2{ background: var(--t2); }
+.tint-3{ background: var(--t3); }
+.tint-4{ background: var(--t4); }
+
+.plan-top{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.plan-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(0,0,0,.10);
+  display: grid;
+  place-items: center;
+  color: rgba(10,10,10,.9);
+}
+
+.plan-icon svg{
+  width: 22px;
+  height: 22px;
+}
+
+/* Títulos */
+.plan-name{
+  margin: 2px 0 0;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.plan-desc{
+  margin: 8px 0 0;
+  color: rgba(10,10,10,.75);
+  line-height: 1.35;
+}
+
+/* Separador */
+.plan-sep{
+  height: 1px;
+  background: rgba(0,0,0,.10);
+  margin: 14px 0;
+}
+
+/* Lista con iconitos */
+.plan-features{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(10,10,10,.82);
+}
+
+.plan-features li{
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.feat-ic{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(0,0,0,.10);
+  font-size: 13px;
+}
+
+/* Precio (en el ejemplo no siempre está, pero tú lo pediste) */
+.plan-price{
+  margin-top: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-weight: 900;
+  color: rgba(10,10,10,.92);
+}
+
+.plan-price .val{
+  font-size: 2.1rem;
+  letter-spacing: -0.03em;
+}
+.plan-price .per{
+  font-weight: 800;
+  color: rgba(10,10,10,.60);
+}
+
+/* Botón oscuro (como el ejemplo) */
+.plan-btn{
+  margin-top: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: rgba(10,10,10,.88);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .18s ease, opacity .18s ease, background .18s ease;
+}
+
+.plan-btn:hover{
+  opacity: .95;
+  transform: translateY(-1px);
+}
+
+/* Destacado */
+.plan-box.featured{
+  border: 1px solid rgba(255,213,79,.70);
+  box-shadow: 0 20px 60px rgba(255,213,79,.12);
+}
+
+.plan-badge{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 900;
+  background: rgba(255, 213, 79, .30);
+  border: 1px solid rgba(255, 213, 79, .55);
+  color: rgba(10,10,10,.92);
+}
+
+/* Responsive */
+@media (max-width: 575.98px){
+  .plans-section{ padding: 52px 0; }
+  .plan-top{ grid-template-columns: 40px 1fr; }
+  .plan-icon{ width: 40px; height: 40px; }
+}
+.plan-init{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.plan-in{
+  opacity: 1;
+  transform: translateY(0);
+}
