@@ -7,7 +7,7 @@
   place-items: center;
 
   /* Imagen de fondo */
-  background-image: url("img/hero.jpeg");
+  background-image: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=70");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,25 +69,36 @@
   gap: 12px;
   flex-wrap: wrap;
 }
-/* Permite posicionamiento interno */
-.hero-box{
-  position: relative;
-}
+/* Desktop: logo grande a la derecha */
+.hero-box{ position: relative; }
 
-/* LOGO GRANDE centrado en el espacio derecho */
 .hero-logo{
   position: absolute;
-
-  right: clamp(20px, 4vw, 60px); /* espacio desde el borde derecho */
+  right: clamp(20px, 4vw, 60px);
   top: 50%;
   transform: translateY(-50%);
-
-  height: clamp(280px, 48vw, 460px); /* 🔥 MUCHO MÁS GRANDE */
+  height: clamp(180px, 28vw, 360px);
   width: auto;
   object-fit: contain;
-
   opacity: 0.95;
   pointer-events: none;
+}
+
+/* Mobile: sigue dentro del box, pero abajo a la derecha */
+@media (max-width: 768px){
+  .hero-logo{
+    top: auto;                 /* quitamos el centrado vertical */
+    bottom: 12px;
+    right: 12px;
+    transform: none;
+    height: 96px;              /* más pequeño para no tapar */
+    opacity: 0.85;
+  }
+
+  /* para que no se monten los botones con el logo */
+  .hero-box{
+    padding-bottom: 120px;     /* reserva espacio para el logo */
+  }
 }
 
 /* Ajustes mobile */
