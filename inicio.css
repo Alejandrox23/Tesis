@@ -2,25 +2,22 @@
 .hero-bg{
   position: relative;
   width: 100%;
-  min-height: clamp(420px, 70vh, 720px); /* responsive */
+  min-height: clamp(420px, 70vh, 720px);
   display: grid;
   place-items: center;
 
-  /* Imagen de fondo */
-  background-image: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=70");
+  background-image: url("img/hero.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  overflow: hidden;
 }
 
 .hero-overlay{
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,.58),
-    rgba(0,0,0,.52)
-  );
+  background: linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.52));
 }
 
 /* Contenido sobre la imagen */
@@ -31,6 +28,7 @@
 }
 
 .hero-box{
+  position: relative; /* padre del logo absolute */
   max-width: 860px;
   padding: clamp(18px, 3vw, 28px);
   border-radius: 22px;
@@ -41,6 +39,7 @@
   -webkit-backdrop-filter: blur(8px);
 
   color: #fff;
+  overflow: hidden; /* evita que el logo se salga */
 }
 
 /* Slogan */
@@ -49,8 +48,6 @@
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.05;
-
-  /* multipantalla */
   font-size: clamp(1.9rem, 4.2vw, 3.4rem);
 }
 
@@ -69,43 +66,65 @@
   gap: 12px;
   flex-wrap: wrap;
 }
-/* Desktop: logo grande a la derecha */
-.hero-box{ position: relative; }
 
+/* Logo (desktop) */
 .hero-logo{
   position: absolute;
   right: clamp(20px, 4vw, 60px);
   top: 50%;
   transform: translateY(-50%);
+
   height: clamp(180px, 28vw, 360px);
   width: auto;
+  max-width: 42%;
+
   object-fit: contain;
   opacity: 0.95;
   pointer-events: none;
 }
 
-/* Mobile: sigue dentro del box, pero abajo a la derecha */
-@media (max-width: 768px){
-  .hero-logo{
-    top: auto;                 /* quitamos el centrado vertical */
-    bottom: 12px;
-    right: 12px;
-    transform: none;
-    height: 96px;              /* más pequeño para no tapar */
-    opacity: 0.85;
-  }
-
-  /* para que no se monten los botones con el logo */
+/* Desktop: reserva espacio para que el texto no choque con el logo */
+@media (min-width: 769px){
   .hero-box{
-    padding-bottom: 120px;     /* reserva espacio para el logo */
+    padding-right: clamp(210px, 30vw, 420px);
   }
 }
 
-/* Ajustes mobile */
+/* Tablet/Móvil: logo GRANDE abajo y centrado */
+@media (max-width: 768px){
+  .hero-content{ padding: 52px 0; }
+
+  .hero-box{
+    padding-bottom: 240px; /* espacio para el logo grande */
+  }
+
+  .hero-actions .btn{
+    width: 100%;
+  }
+
+  .hero-logo{
+    top: auto;
+    bottom: 14px;
+
+    left: 50%;
+    right: auto;
+
+    transform: translateX(-50%);
+
+    height: 200px;     /* grande */
+    max-height: 40vh;  /* no se sale */
+    max-width: 92%;
+    width: auto;
+
+    opacity: 0.95;
+  }
+}
+
+/* Móvil pequeño */
 @media (max-width: 575.98px){
   .hero-content{ padding: 48px 0; }
-  .hero-box{ border-radius: 18px; }
-  .hero-actions .btn{ width: 100%; }
+  .hero-box{ border-radius: 18px; padding-bottom: 220px; }
+  .hero-logo{ height: 180px; }
 }
 /* ===== SOBRE NOSOTROS ===== */
 .about-section{
