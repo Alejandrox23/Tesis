@@ -27,8 +27,16 @@
   padding: 64px 0;
 }
 
+/* ✅ NUEVO: Grid para texto + logo (evita espacio vacío) */
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: clamp(16px, 3vw, 44px);
+}
+
+/* Caja texto (igual que la tuya) */
 .hero-box{
-  position: relative; /* padre del logo absolute */
   max-width: 860px;
   padding: clamp(18px, 3vw, 28px);
   border-radius: 22px;
@@ -39,7 +47,7 @@
   -webkit-backdrop-filter: blur(8px);
 
   color: #fff;
-  overflow: hidden; /* evita que el logo se salga */
+  overflow: hidden;
 }
 
 /* Slogan */
@@ -67,35 +75,27 @@
   flex-wrap: wrap;
 }
 
-/* Logo (desktop) */
+/* ✅ Logo fuera del recuadro */
+.hero-logo-wrap{
+  display: grid;
+  place-items: center;
+}
+
 .hero-logo{
-  position: absolute;
-  right: clamp(20px, 4vw, 60px);
-  top: 50%;
-  transform: translateY(-50%);
-
-  height: clamp(180px, 28vw, 360px);
+  height: clamp(220px, 24vw, 420px);
   width: auto;
-  max-width: 42%;
-
+  max-width: 100%;
   object-fit: contain;
-  opacity: 0.95;
+  opacity: 0.98;
   pointer-events: none;
 }
 
-/* Desktop: reserva espacio para que el texto no choque con el logo */
-@media (min-width: 769px){
-  .hero-box{
-    padding-right: clamp(210px, 30vw, 420px);
-  }
-}
-
-/* Tablet/Móvil: logo GRANDE abajo y centrado */
+/* Tablet/Móvil: apila (texto arriba, logo abajo centrado) */
 @media (max-width: 768px){
   .hero-content{ padding: 52px 0; }
 
-  .hero-box{
-    padding-bottom: 240px; /* espacio para el logo grande */
+  .hero-grid{
+    grid-template-columns: 1fr;
   }
 
   .hero-actions .btn{
@@ -103,28 +103,16 @@
   }
 
   .hero-logo{
-    top: auto;
-    bottom: 14px;
-
-    left: 50%;
-    right: auto;
-
-    transform: translateX(-50%);
-
-    height: 200px;     /* grande */
-    max-height: 40vh;  /* no se sale */
-    max-width: 92%;
-    width: auto;
-
-    opacity: 0.95;
+    height: 220px;   /* grande en móvil */
+    max-height: 40vh;
   }
 }
 
 /* Móvil pequeño */
 @media (max-width: 575.98px){
   .hero-content{ padding: 48px 0; }
-  .hero-box{ border-radius: 18px; padding-bottom: 220px; }
-  .hero-logo{ height: 180px; }
+  .hero-box{ border-radius: 18px; }
+  .hero-logo{ height: 190px; }
 }
 /* ===== SOBRE NOSOTROS ===== */
 .about-section{
