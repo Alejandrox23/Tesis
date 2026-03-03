@@ -101,37 +101,121 @@ aboutCards.forEach(card => {
   card.style.transition = "opacity .6s ease, transform .6s ease";
   observer.observe(card);
 });
-// Reveal simple para cards de cursos
-const courseCards = document.querySelectorAll(".course-card");
+// Reveal on scroll (ligero y pro)
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
 
-const courseObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  els.forEach(el => io.observe(el));
+})();
+//
+document.querySelectorAll('.c-btn').forEach(btn=>{
+  btn.addEventListener('click', () => {
+    btn.classList.add('pressed');
+    setTimeout(()=> btn.classList.remove('pressed'), 160);
+  });
+});
+//
+// Animación suave al cargar
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".plan-card").forEach((card,i)=>{
+    card.style.opacity = 0;
+    card.style.transform = "translateY(20px)";
+    setTimeout(()=>{
+      card.style.transition = ".6s ease";
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, i * 150);
+  });
+});
+const partners = document.querySelectorAll(".partner-card");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
       entry.target.style.transform = "translateY(0)";
-      courseObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
-
-courseCards.forEach(card => {
-  card.style.opacity = "0";
-  card.style.transform = "translateY(18px)";
-  card.style.transition = "opacity .6s ease, transform .6s ease";
-  courseObserver.observe(card);
 });
-const planCards = document.querySelectorAll(".plan-box");
 
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add("plan-in");
-      obs.unobserve(e.target);
+partners.forEach(card=>{
+  card.style.opacity = 0;
+  card.style.transform = "translateY(20px)";
+  card.style.transition = "all .6s ease";
+  observer.observe(card);
+});
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+
+  els.forEach(el => io.observe(el));
+})();
+(() => {
+  const form = document.getElementById('chatForm');
+  const input = document.getElementById('chatText');
+  const body  = document.getElementById('chatBody');
+
+  if (!form || !input || !body) return;
+
+  const addMsg = (who, text) => {
+    const wrap = document.createElement('div');
+    wrap.className = `msg ${who}`;
+
+    if (who === 'bot') {
+      const av = document.createElement('div');
+      av.className = 'avatar';
+      av.textContent = '🤖';
+      wrap.appendChild(av);
     }
-  });
-}, { threshold: 0.15 });
 
-planCards.forEach(card => {
-  card.classList.add("plan-init");
-  obs.observe(card);
-});
+    const b = document.createElement('div');
+    b.className = 'bubble';
+    b.textContent = text;
+    wrap.appendChild(b);
+
+    body.appendChild(wrap);
+    body.scrollTop = body.scrollHeight;
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const txt = (input.value || '').trim();
+    if (!txt) return;
+
+    addMsg('user', txt);
+    input.value = '';
+
+    setTimeout(() => {
+      addMsg('bot', 'Entendido. Dame un dato más (tipo de motor / voltaje / contexto) y te respondo con un ejemplo.');
+    }, 450);
+  });
+})();
+(() => {
+  const form = document.getElementById('contactForm');
+  const msg  = document.getElementById('contactMsg');
+  if (!form || !msg) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    msg.textContent = "✅ Mensaje listo. Conecta este formulario a tu backend para enviarlo por correo/BD.";
+    form.reset();
+  });
+})();
