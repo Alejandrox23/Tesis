@@ -16,59 +16,42 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-dark nav-oscuro">
-        <div class="container">
-          <!-- Logo -->
-          <a
-            class="navbar-brand d-flex align-items-center gap-2"
-            href="index.html"
-          >
-            <img src="img/logo.png" alt="Logo" class="logo-img" />
-            <span class="brand-text d-none d-sm-inline">Logo</span>
-          </a>
+     <!-- NAVBAR -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-oscuro">
+      <div class="container">
 
-          <!-- Toggle Mobile -->
-          <button
-            class="navbar-toggler border-0 shadow-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNav"
-            aria-controls="mainNav"
-            aria-expanded="false"
-            aria-label="Abrir menú"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <img src="img/logo.png" alt="Logo" class="logo-img">
+          <span class="brand-text d-none d-sm-inline">ProElectro Academy</span>
+        </a>
 
-          <!-- Menú -->
-          <div class="collapse navbar-collapse" id="mainNav">
-            <!-- Menú centrado real -->
-            <ul class="navbar-nav mx-auto text-center nav-center">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="nosotros.html">Sobre nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="servicio.html">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pago.html">Pago</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contactanos.html">Contáctanos</a>
-              </li>
-            </ul>
+        <!-- Toggle Mobile -->
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- Spacer para que el centrado no se vaya (balance del logo) -->
-            <div class="nav-spacer d-none d-lg-block"></div>
-          </div>
+        <!-- Menú -->
+        <div class="collapse navbar-collapse" id="mainNav">
+
+          <!-- Menú centrado real -->
+          <ul class="navbar-nav mx-auto text-center nav-center">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="nosotros.html">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="servicio.html">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="pago.html">Pago</a></li>
+            <li class="nav-item"><a class="nav-link" href="contactanos.html">Contáctanos</a></li>
+          </ul>
+
+          <!-- Spacer para que el centrado no se vaya (balance del logo) -->
+          <div class="nav-spacer d-none d-lg-block"></div>
         </div>
-      </nav>
-    </header>
+
+      </div>
+    </nav>
+  </header>
     <main>
       <section id="planes" class="plans-section">
         <div class="container">
@@ -157,36 +140,36 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer-oscuro">
-      <div class="container py-4">
-        <div class="row g-4 align-items-center">
-          <div class="col-12 col-md-4 text-center text-md-start">
-            <div class="d-inline-flex align-items-center gap-2">
-              <span class="fw-semibold">ProElectro</span>
-            </div>
-          </div>
+   <!-- FOOTER -->
+  <footer class="footer-oscuro">
+    <div class="container py-4">
+      <div class="row g-4 align-items-center">
 
-          <div class="col-12 col-md-4">
-            <ul class="footer-links">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="nosotros.html">Sobre nosotros</a></li>
-              <li><a href="seccion.html">Servicios</a></li>
-              <li><a href="pago.html">Pago</a></li>
-              <li><a href="contactanos.html">Contáctanos</a></li>
-            </ul>
-          </div>
+        <div class="col-12 col-md-4 text-center text-md-start">
+          <div class="d-inline-flex align-items-center gap-2">
 
-          <div class="col-12 col-md-4 text-center text-md-end">
-            <small class="text-white-50"
-              >© <span id="year"></span> ProElectro</small
-            >
+            <span class="fw-semibold">ProElectro Acedemy</span>
           </div>
         </div>
 
-        <div class="linea-amarilla mt-4" aria-hidden="true"></div>
+        <div class="col-12 col-md-4">
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="seccion.html">Servicios</a></li>
+            <li><a href="pago.html">Pago</a></li>
+            <li><a href="contactanos.html">Contáctanos</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <small class="text-white-50">© <span id="year"></span> ProElectro Academy</small>
+        </div>
       </div>
-    </footer>
+
+      <div class="linea-amarilla mt-4" aria-hidden="true"></div>
+    </div>
+  </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

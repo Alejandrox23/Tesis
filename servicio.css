@@ -406,17 +406,20 @@
 
 .sim-cover{
   width: 100%;
-  aspect-ratio: 16/7;
+  aspect-ratio: 16/9;
   border-radius: var(--r-lg);
   overflow: hidden;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sim-cover img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
